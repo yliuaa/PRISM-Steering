@@ -1,0 +1,28 @@
+model_name: qwen-2.5-7b
+model_id: Qwen/Qwen2.5-7B-Instruct
+intervention: moral_self_correction
+method: resid_projection
+
+seed: 2026
+batch_size: 16
+profile_batch_size: 32
+profile_max_samples:
+train_ratio: 0.7
+probe_metric: val_auprc
+probe_threshold_metric: f1
+answer_format: json_upper_v1
+
+# Cached training split
+training_cache_dir: /path/to/training/cache
+# Cache activations for analysis
+act_data_root: /path/to/act/data
+# Cache taxed data info for prompt
+profile_cache_dir: /path/to/profile/cache
+resid_cache_dir: /path/to/resid/cache
+results_root: /PRISM/results
+bbq_benchmark_path: /path/to/bbq/benchmark
+diffaware_data_root: /path/to/diffaware/data
+
+
+model_kwargs:
+  device: cuda
